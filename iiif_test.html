@@ -15,13 +15,40 @@
     <script src="build/mirador/mirador.js"></script>
   </head>
   <body>
-    <div id="viewer"></div>
+    <div id="viewer">
+    <iframe title="Mirador" src="iiif.inha.fr" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+
+    </div>
     <script type="text/javascript">
       $(function() {
         Mirador({
-          id: "viewer",
-          data: [/* Manifests and collections here *]
-        });
+  id: "viewer",
+  buildPath: "",
+  data: [{ 
+  manifestUri: "http://dms-data.stanford.edu/data/manifests/Walters/qm670kv1873/manifest.json",
+    location: "Stanford University"
+    }
+    // For a working example, try:
+    // { manifestUri: "http://dms-data.stanford.edu/data/manifests/Walters/qm670kv1873/manifest.json", location: "Stanford University" }
+  ],
+  mainMenuSettings: {
+    show: false
+  }
+  windowObjects: [{
+    loadedManifest: "http://dms-data.stanford.edu/data/manifests/Walters/qm670kv1873/manifest.json",
+    canvasID: "http://dms-data.stanford.edu/data/manifests/Walters/qm670kv1873/canvas/canvas-8",
+    // For a working example, try:
+    // loadedManifest: "http://dms-data.stanford.edu/data/manifests/Walters/qm670kv1873/manifest.json",
+    // canvasID: "http://dms-data.stanford.edu/data/manifests/Walters/qm670kv1873/canvas/canvas-8",
+    viewType: "ImageView",
+    displayLayout: false,
+    bottomPanel: false,
+    bottomPanelAvailable: false,
+    bottomPanelVisible: false,
+    sidePanel: false,
+    annotationLayer: false
+  }]
+});
       });
     </script>
   </body>
